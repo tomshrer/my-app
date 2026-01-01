@@ -27,13 +27,13 @@ function RouteComponent() {
   }, [conversationId])
 
   return (
-    <div className="flex flex-col h-full border-b border-stone-700 pb-4">
+    <div className="flex h-full flex-col border-b border-stone-700 pb-4">
       <h2 className="text-lg">{conversation?.otherUserEmail}</h2>
       <span>{conversation?.property?.title}</span>
 
-      <div className="grow overflow-auto mt-4"></div>
+      <div className="mt-4 grow overflow-auto"></div>
 
-      <div className="mt-auto flex gap-2 pt-4 border-t border-stone-700">
+      <div className="mt-auto flex gap-2 border-t border-stone-700 pt-4">
         <input
           type="text"
           placeholder="Tape ton message..."

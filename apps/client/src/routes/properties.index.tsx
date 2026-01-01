@@ -49,7 +49,7 @@ function Example() {
                 key={property.id}
                 to="/property/$propertyId"
                 params={{ propertyId: property.id }}
-                className="block rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow-md hover:border-blue-500"
+                className="block rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:border-blue-500 hover:shadow-md"
               >
                 <h2 className="text-xl font-semibold">{property.title}</h2>
                 <p>{property.description}</p>

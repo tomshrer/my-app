@@ -1,3 +1,5 @@
+import Profile from '#models/profile'
+import Property from '#models/property'
 import { DateTime } from 'luxon'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
@@ -5,8 +7,6 @@ import { BaseModel, column, hasMany, hasOne } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import { DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
 import type { HasMany, HasOne } from '@adonisjs/lucid/types/relations'
-import Property from '#models/property'
-import Profile from '#models/profile'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
@@ -29,7 +29,9 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
 
-  @hasOne(() => Profile)
+  @hasOne(() => Profile, {
+    foreignKey: 'profileUserId',
+  })
   declare profile: HasOne<typeof Profile>
 
   @hasMany(() => Property)

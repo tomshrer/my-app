@@ -1,17 +1,18 @@
 import vine from '@vinejs/vine'
 
+export const emailRule = () => vine.string().maxLength(254).email().trim().toLowerCase()
+
 export const registerValidator = vine.compile(
   vine.object({
-    email: vine
-      .string()
-      .email()
-      .toLowerCase()
-      .trim()
-      .unique(async (db, value) => {
-        const match = await db.from('users').select('id').where('email', value).first()
-        return !match
-      }),
-    fullName: vine.string().trim().minLength(2),
+    fullName: vine.string().maxLength(254).optional(),
+    email: emailRule().unique(async (db, value) => {
+      const exists = await db
+        .from('users')
+        .whereRaw('LOWER(email) = ?', [value])
+        .select('id')
+        .first()
+      return !exists
+    }),
     password: vine.string().minLength(8),
   })
 )

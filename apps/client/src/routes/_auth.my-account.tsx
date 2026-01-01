@@ -57,10 +57,10 @@ function DashboardComponent() {
   }, [auth.isAuthenticated])
 
   return (
-    <div className="p-2 h-full">
+    <div className="h-full p-2">
       <button
         type="button"
-        className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+        className="me-2 mb-2 rounded-lg bg-red-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-800 focus:ring-4 focus:ring-red-300 focus:outline-none dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
         onClick={handleLogout}
       >
         Logout
@@ -75,7 +75,7 @@ function DashboardComponent() {
         ) : animals.length === 0 ? (
           <p>You haven’t posted any animals yet.</p>
         ) : (
-          <ul className="list-disc pl-5 space-y-1">
+          <ul className="list-disc space-y-1 pl-5">
             {animals.map((animal) => (
               <li key={animal.id}>
                 {animal.title} - {animal.description} - {animal.price} -{' '}

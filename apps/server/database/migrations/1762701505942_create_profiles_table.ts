@@ -5,12 +5,11 @@ export default class extends BaseSchema {
 
   async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
-      table.integer('user_id').unsigned().references('users.id').onDelete('CASCADE')
-      table.string('full_name').nullable()
-
-      table.timestamp('created_at')
-      table.timestamp('updated_at')
+      table.increments('id').primary()
+      table.integer('profile_user_id').unsigned().references('users.id').onDelete('CASCADE')
+      table.string('full_name').notNullable()
+      table.timestamp('created_at', { useTz: true })
+      table.timestamp('updated_at', { useTz: true })
     })
   }
 

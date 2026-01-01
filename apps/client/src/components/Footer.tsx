@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700 text-white py-12 px-8">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700 px-8 py-12 text-white">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
         {/* Logo / Nom */}
         <div className="text-2xl font-extrabold tracking-wide">ImmoSite</div>
 
@@ -9,31 +9,31 @@ export default function Footer() {
         <nav className="flex flex-wrap gap-8 text-lg font-semibold">
           <a
             href="/properties"
-            className="hover:underline hover:text-gray-300 transition"
+            className="transition hover:text-gray-300 hover:underline"
           >
             Propriétés
           </a>
           <a
             href="/agents"
-            className="hover:underline hover:text-gray-300 transition"
+            className="transition hover:text-gray-300 hover:underline"
           >
             Agents
           </a>
           <a
             href="/contact"
-            className="hover:underline hover:text-gray-300 transition"
+            className="transition hover:text-gray-300 hover:underline"
           >
             Contact
           </a>
           <a
             href="/about"
-            className="hover:underline hover:text-gray-300 transition"
+            className="transition hover:text-gray-300 hover:underline"
           >
             À propos
           </a>
           <a
             href="/privacy"
-            className="hover:underline hover:text-gray-300 transition"
+            className="transition hover:text-gray-300 hover:underline"
           >
             Politique de confidentialité
           </a>

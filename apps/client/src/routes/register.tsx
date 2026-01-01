@@ -29,7 +29,7 @@ function RegisterComponent() {
   })
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-zinc-900 px-4">
+    <div className="flex min-h-screen items-center justify-center bg-zinc-900 px-4">
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -123,7 +123,7 @@ function RegisterComponent() {
             <button
               type="submit"
               disabled={!canSubmit}
-              className="flex w-full justify-center rounded-md bg-zinc-500 px-3 py-1.5 text-base/6 sm:text-sm/6 font-semibold text-white hover:bg-zinc-400"
+              className="flex w-full justify-center rounded-md bg-zinc-500 px-3 py-1.5 text-base/6 font-semibold text-white hover:bg-zinc-400 sm:text-sm/6"
             >
               {isSubmitting ? 'Creating account…' : 'Create account'}
             </button>

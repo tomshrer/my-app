@@ -38,6 +38,32 @@ function Example() {
 
   if (error) return 'An error has occurrend: ' + error.message
 
+  const handleGo = async () => {
+    try {
+      const res = await fetch('http://localhost:3333/conversations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('auth-token')}`,
+        },
+        body: JSON.stringify({ propertyId }),
+      })
+
+      if (!res.ok) {
+        throw new Error('Failed to create conversation')
+      }
+      const response = await res.json()
+      const conversationId = response.data?.id
+
+      router.navigate({
+        to: `/dashboard/messages/${conversationId}`,
+      })
+    } catch (err) {
+      console.error(err)
+      alert('Erreur lors de la création de la conversation')
+    }
+  }
+
   return (
     <div>
       <Header />
@@ -53,6 +79,12 @@ function Example() {
           <button onClick={() => router.history.back()}>Go back</button>
         ) : null}
       </div>
+      <button
+        onClick={handleGo}
+        className="mt-4 rounded bg-black px-4 py-2 text-white"
+      >
+        Contacter
+      </button>
     </div>
   )
 }

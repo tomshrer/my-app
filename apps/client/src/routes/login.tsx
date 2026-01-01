@@ -35,7 +35,7 @@ function LoginComponent() {
   })
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-zinc-900 px-4">
+    <div className="flex min-h-screen items-center justify-center px-4">
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -43,7 +43,7 @@ function LoginComponent() {
         }}
         className="grid w-full max-w-md grid-cols-1 gap-8"
       >
-        <h1 className="text-2xl/8 font-semibold text-white sm:text-xl/8">
+        <h1 className="text-2xl/8 font-semibold sm:text-xl/8">
           Log in to your accountdededede
         </h1>
         <div>
@@ -53,7 +53,7 @@ function LoginComponent() {
               <>
                 <label
                   htmlFor="email"
-                  className="text-base/6 text-white select-none sm:text-sm/6"
+                  className="text-base/6 select-none sm:text-sm/6"
                 >
                   Email
                 </label>
@@ -79,7 +79,7 @@ function LoginComponent() {
                 <>
                   <label
                     htmlFor="password"
-                    className="text-base/6 text-white select-none sm:text-sm/6"
+                    className="text-base/6 select-none sm:text-sm/6"
                   >
                     Password
                   </label>
@@ -104,7 +104,7 @@ function LoginComponent() {
             <button
               type="submit"
               disabled={!canSubmit}
-              className="flex w-ful justify-center rounded-md bg-zinc-500 px-3 py-1.5 text-base/6 sm:text-sm/6 font-semibold text-white hover:bg-zinc-400"
+              className="w-ful flex justify-center rounded-md bg-zinc-500 px-3 py-1.5 text-base/6 font-semibold text-white hover:bg-zinc-400 sm:text-sm/6"
             >
               {isSubmitting ? 'Logging in…' : 'Login'}
             </button>

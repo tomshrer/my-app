@@ -16,39 +16,37 @@ function RouteComponent() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setConversations(data)
+        setConversations(data.data)
       })
   }, [])
 
+  console.log(conversations)
+
   return (
     <div className="flex h-full">
-      {/* Sidebar */}
-      <div className="h-full border-r border-stone-800 min-w-64 p-4">
+      <div className="h-full min-w-64 border-r border-stone-200 p-4 dark:border-stone-800">
         <Link to="/dashboard/messages">
-          <h2 className="text-lg mb-4">Messages</h2>
+          <h2 className="mb-4 text-lg text-stone-900 dark:text-stone-50">
+            Messages
+          </h2>
         </Link>
-
         {conversations.map((conv: any) => {
-          const lastMessage = conv.messages?.[0]
-
           return (
             <Link
               key={conv.id}
               to="/dashboard/messages/$conversationId"
               params={{ conversationId: conv.id }}
-              className="block py-2 border-b border-stone-700 cursor-pointer hover:bg-stone-700"
+              className="block cursor-pointer border-b border-stone-100 py-2 hover:bg-stone-700 dark:border-stone-800"
             >
-              <div>{conv.owner.email}</div>
-              <div className="text-xs text-stone-500 italic">
-                {lastMessage ? `${lastMessage.content}` : 'No messages yet'}
+              <div className="text-stone-900 dark:text-stone-50">
+                {conv.participants?.[0]?.user.profile.fullName}
               </div>
             </Link>
           )
         })}
       </div>
 
-      {/* Content */}
-      <main className="flex-1 p-4 overflow-auto">
+      <main className="flex-1 overflow-auto p-4">
         <Outlet />
       </main>
     </div>

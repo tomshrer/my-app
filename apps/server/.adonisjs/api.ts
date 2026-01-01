@@ -8,16 +8,29 @@ import type { MakeTuyauRequest, MakeTuyauResponse } from '@tuyau/utils/types'
 import type { InferInput } from '@vinejs/vine/types'
 
 type RegisterPost = {
-  request: MakeTuyauRequest<InferInput<typeof import('../app/validators/auth.ts')['registerValidator']>>
-  response: MakeTuyauResponse<import('../app/controllers/auth_controller.ts').default['register'], true>
+  request: MakeTuyauRequest<
+    InferInput<(typeof import('../app/validators/auth.ts'))['registerValidator']>
+  >
+  response: MakeTuyauResponse<
+    import('../app/controllers/auth_controller.ts').default['register'],
+    true
+  >
 }
 type LoginPost = {
-  request: MakeTuyauRequest<InferInput<typeof import('../app/validators/auth.ts')['loginValidator']>>
-  response: MakeTuyauResponse<import('../app/controllers/auth_controller.ts').default['login'], true>
+  request: MakeTuyauRequest<
+    InferInput<(typeof import('../app/validators/auth.ts'))['loginValidator']>
+  >
+  response: MakeTuyauResponse<
+    import('../app/controllers/auth_controller.ts').default['login'],
+    true
+  >
 }
 type LogoutDelete = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/controllers/auth_controller.ts').default['logout'], false>
+  response: MakeTuyauResponse<
+    import('../app/controllers/auth_controller.ts').default['logout'],
+    false
+  >
 }
 type MeGetHead = {
   request: unknown
@@ -25,149 +38,177 @@ type MeGetHead = {
 }
 type PropertiesMineGetHead = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/controllers/properties_controller.ts').default['mine'], false>
+  response: MakeTuyauResponse<
+    import('../app/controllers/properties_controller.ts').default['mine'],
+    false
+  >
 }
 type PropertiesGetHead = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/controllers/properties_controller.ts').default['list'], false>
+  response: MakeTuyauResponse<
+    import('../app/controllers/properties_controller.ts').default['list'],
+    false
+  >
 }
 type PropertiesIdGetHead = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/controllers/properties_controller.ts').default['show'], false>
+  response: MakeTuyauResponse<
+    import('../app/controllers/properties_controller.ts').default['show'],
+    false
+  >
 }
 type PropertiesPost = {
-  request: MakeTuyauRequest<InferInput<typeof import('../app/validators/property.ts')['createPropertyValidator']>>
-  response: MakeTuyauResponse<import('../app/controllers/properties_controller.ts').default['create'], true>
+  request: MakeTuyauRequest<
+    InferInput<(typeof import('../app/validators/property.ts'))['createPropertyValidator']>
+  >
+  response: MakeTuyauResponse<
+    import('../app/controllers/properties_controller.ts').default['create'],
+    true
+  >
 }
 type PropertiesIdPut = {
-  request: MakeTuyauRequest<InferInput<typeof import('../app/validators/property.ts')['updateAnimalValidator']>>
-  response: MakeTuyauResponse<import('../app/controllers/properties_controller.ts').default['update'], true>
+  request: MakeTuyauRequest<
+    InferInput<(typeof import('../app/validators/property.ts'))['updateAnimalValidator']>
+  >
+  response: MakeTuyauResponse<
+    import('../app/controllers/properties_controller.ts').default['update'],
+    true
+  >
 }
 type PropertiesIdDelete = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/controllers/properties_controller.ts').default['delete'], false>
+  response: MakeTuyauResponse<
+    import('../app/controllers/properties_controller.ts').default['delete'],
+    false
+  >
 }
 type ProfileEditGetHead = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/controllers/profiles_controller.ts').default['edit'], false>
+  response: MakeTuyauResponse<
+    import('../app/controllers/profiles_controller.ts').default['edit'],
+    false
+  >
 }
 type ProfilesPut = {
-  request: MakeTuyauRequest<InferInput<typeof import('../app/validators/profile.ts')['profileUpdateValidator']>>
-  response: MakeTuyauResponse<import('../app/controllers/profiles_controller.ts').default['update'], true>
+  request: MakeTuyauRequest<
+    InferInput<(typeof import('../app/validators/profile.ts'))['profileUpdateValidator']>
+  >
+  response: MakeTuyauResponse<
+    import('../app/controllers/profiles_controller.ts').default['update'],
+    true
+  >
 }
 type MessagesGetHead = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/controllers/messages_controller.ts').default['index'], false>
+  response: MakeTuyauResponse<
+    import('../app/controllers/messages_controller.ts').default['index'],
+    false
+  >
 }
 type MessagesIdGetHead = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/controllers/messages_controller.ts').default['show'], false>
+  response: MakeTuyauResponse<
+    import('../app/controllers/messages_controller.ts').default['show'],
+    false
+  >
 }
 type MessagesPost = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/controllers/messages_controller.ts').default['store'], false>
+  response: MakeTuyauResponse<
+    import('../app/controllers/messages_controller.ts').default['store'],
+    false
+  >
 }
 export interface ApiDefinition {
-  'register': {
-    '$url': {
-    };
-    '$post': RegisterPost;
-  };
-  'login': {
-    '$url': {
-    };
-    '$post': LoginPost;
-  };
-  'logout': {
-    '$url': {
-    };
-    '$delete': LogoutDelete;
-  };
-  'me': {
-    '$url': {
-    };
-    '$get': MeGetHead;
-    '$head': MeGetHead;
-  };
-  'properties': {
+  register: {
+    $url: {}
+    $post: RegisterPost
+  }
+  login: {
+    $url: {}
+    $post: LoginPost
+  }
+  logout: {
+    $url: {}
+    $delete: LogoutDelete
+  }
+  me: {
+    $url: {}
+    $get: MeGetHead
+    $head: MeGetHead
+  }
+  properties: {
     'mine': {
-      '$url': {
-      };
-      '$get': PropertiesMineGetHead;
-      '$head': PropertiesMineGetHead;
-    };
-    '$url': {
-    };
-    '$get': PropertiesGetHead;
-    '$head': PropertiesGetHead;
+      $url: {}
+      $get: PropertiesMineGetHead
+      $head: PropertiesMineGetHead
+    }
+    '$url': {}
+    '$get': PropertiesGetHead
+    '$head': PropertiesGetHead
     ':id': {
-      '$url': {
-      };
-      '$get': PropertiesIdGetHead;
-      '$head': PropertiesIdGetHead;
-      '$put': PropertiesIdPut;
-      '$delete': PropertiesIdDelete;
-    };
-    '$post': PropertiesPost;
-  };
-  'profile': {
-    'edit': {
-      '$url': {
-      };
-      '$get': ProfileEditGetHead;
-      '$head': ProfileEditGetHead;
-    };
-  };
-  'profiles': {
-    '$url': {
-    };
-    '$put': ProfilesPut;
-  };
-  'messages': {
-    '$url': {
-    };
-    '$get': MessagesGetHead;
-    '$head': MessagesGetHead;
+      $url: {}
+      $get: PropertiesIdGetHead
+      $head: PropertiesIdGetHead
+      $put: PropertiesIdPut
+      $delete: PropertiesIdDelete
+    }
+    '$post': PropertiesPost
+  }
+  profile: {
+    edit: {
+      $url: {}
+      $get: ProfileEditGetHead
+      $head: ProfileEditGetHead
+    }
+  }
+  profiles: {
+    $url: {}
+    $put: ProfilesPut
+  }
+  messages: {
+    '$url': {}
+    '$get': MessagesGetHead
+    '$head': MessagesGetHead
     ':userId': {
-      '$url': {
-      };
-      '$get': MessagesIdGetHead;
-      '$head': MessagesIdGetHead;
-    };
-    '$post': MessagesPost;
-  };
+      $url: {}
+      $get: MessagesIdGetHead
+      $head: MessagesIdGetHead
+    }
+    '$post': MessagesPost
+  }
 }
 const routes = [
   {
     params: [],
     name: 'auth.register',
     path: '/register',
-    method: ["POST"],
+    method: ['POST'],
     types: {} as RegisterPost,
   },
   {
     params: [],
     name: 'auth.login',
     path: '/login',
-    method: ["POST"],
+    method: ['POST'],
     types: {} as LoginPost,
   },
   {
     params: [],
     name: 'auth.logout',
     path: '/logout',
-    method: ["DELETE"],
+    method: ['DELETE'],
     types: {} as LogoutDelete,
   },
   {
     params: [],
     name: 'auth.me',
     path: '/me',
-    method: ["GET","HEAD"],
+    method: ['GET', 'HEAD'],
     types: {} as MeGetHead,
   },
-] as const;
+] as const
 export const api = {
   routes,
-  definition: {} as ApiDefinition
+  definition: {} as ApiDefinition,
 }

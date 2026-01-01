@@ -9,6 +9,7 @@ import { routeTree } from './routeTree.gen'
 import { AuthProvider, useAuth } from './auth'
 import reportWebVitals from './reportWebVitals.ts'
 import './styles.css'
+import { ThemeProvider } from './components/theme-provider.tsx'
 
 // Create a new router instance
 const router = createRouter({
@@ -39,7 +40,9 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        <InnerApp />
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+          <InnerApp />
+        </ThemeProvider>
       </QueryClientProvider>
     </AuthProvider>
   )

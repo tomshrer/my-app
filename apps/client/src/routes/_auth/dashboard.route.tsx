@@ -45,9 +45,9 @@ const options = [
 
 function DashboardComponent() {
   return (
-    <div className="relative isolate flex min-h-svh w-full bg-stone-900 max-lg:flex-col lg:bg-zinc-950">
+    <div className="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col dark:bg-stone-950">
       {/* Sidebar */}
-      <div className="fixed inset-y-0 left-0 w-64 max-lg:hidden">
+      <div className="fixed inset-y-0 left-0 w-64 border-r border-stone-200 max-lg:hidden dark:border-stone-700">
         <div className="flex h-full min-h-0 flex-col">
           <AccountToggle />
           <div className="flex flex-1 flex-col overflow-y-auto p-4">
@@ -57,8 +57,8 @@ function DashboardComponent() {
       </div>
 
       {/* Dashboard */}
-      <div className="flex flex-1 flex-col pb-2 lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-64">
-        <div className="grow p-6 lg:rounded-lg lg:bg-stone-900 lg:p-2 lg:shadow-xs lg:ring-1 lg:ring-zinc-800/75">
+      <div className="flex flex-1 flex-col pl-64">
+        <div className="grow bg-white dark:bg-stone-950">
           <Outlet />
         </div>
       </div>
@@ -83,42 +83,42 @@ const AccountToggle = () => {
 
   return (
     <Menu as="div" className="flex flex-col border-b border-zinc-950/5 p-4">
-      <MenuButton className="flex p-0.5 hover:bg-stone-800 rounded transition-colors relative gap-2 w-full items-center data-open:bg-red-700">
+      <MenuButton className="relative flex w-full items-center gap-2 rounded p-0.5 transition-colors hover:bg-stone-800 data-open:bg-red-700">
         <img
           src="https://api.dicebear.com/9.x/notionists/svg"
           alt="avatar"
-          className="size-8 rounded shrink-0 bg-blue-500 shadow"
+          className="size-8 shrink-0 rounded bg-blue-500 shadow"
         />
         <div className="text-start">
-          <span className="text-sm font-semibold block">
+          <span className="block text-sm font-semibold">
             {user?.profile?.fullName}
           </span>
-          <span className="text-xs block text-stone-500">{user?.email}</span>
+          <span className="block text-xs text-stone-500">{user?.email}</span>
         </div>
 
         <ChevronDown
           size={12}
-          className="absolute right-2 top-1/2 translate-y-[calc(-50%+4px)]"
+          className="absolute top-1/2 right-2 translate-y-[calc(-50%+4px)]"
         />
         <ChevronUp
           size={12}
-          className="absolute right-2 top-1/2 translate-y-[calc(-50%-4px)]"
+          className="absolute top-1/2 right-2 translate-y-[calc(-50%-4px)]"
         />
       </MenuButton>
       <MenuItems
         transition
         anchor="bottom start"
-        className="min-w-80 lg:min-w-64 rounded-xl border border-white/5 bg-stone-900 p-4 focus:outline-none [--anchor-gap:--spacing(1)]"
+        className="min-w-80 rounded-xl border border-white/5 bg-stone-900 p-4 [--anchor-gap:--spacing(1)] focus:outline-none lg:min-w-64"
       >
         <MenuItem as="div" className="flex items-center gap-4 px-3 py-1.5">
           <ArrowLeftToLine size={20} />
-          <Link className="block  text-stone-200" to="/properties">
+          <Link className="block text-stone-200" to="/properties">
             Go home
           </Link>
         </MenuItem>
         <MenuItem as="div" className="flex items-center gap-4 px-3 py-1.5">
           <LogOut size={20} />
-          <button onClick={handleLogout} className="block  text-stone-200">
+          <button onClick={handleLogout} className="block text-stone-200">
             Sign out
           </button>
         </MenuItem>
@@ -142,7 +142,7 @@ const RouteSelect = () => {
               className:
                 'hover:bg-stone-200 bg-transparent text-stone-500 shadow-none',
             })}
-            className="group flex items-center justify-start gap-2 w-full rounded px-2 py-1.5 transition-[box-shadow_background-color_color]"
+            className="group flex w-full items-center justify-start gap-2 rounded px-2 py-1.5 transition-[box-shadow_background-color_color]"
           >
             {({ isActive }) => {
               return (

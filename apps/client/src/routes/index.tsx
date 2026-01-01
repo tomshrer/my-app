@@ -12,11 +12,12 @@ function HomeComponent() {
     <main>
       <Header />
       <div className="relative overflow-hidden px-4">
-        <div className="max-w-6xl mx-auto relative py-20">
+        <div className="relative mx-auto max-w-6xl py-20">
           <div className="flex flex-col gap-5">
             <h1 className="text-4xl sm:text-6xl">
               Musical widget for streamers!
             </h1>
+            <div className="flex justify-center bg-blue-500 p-4 text-white"></div>
             <p className="text-xl font-thin text-stone-400">
               Compatible with{''}{' '}
               <span className="font-normal">AppleMusic</span>,
@@ -26,7 +27,7 @@ function HomeComponent() {
             <div className="flex gap-5 py-20">
               <Link
                 to="/properties"
-                className="flex items-center gap-2 justify-center bg-stone-200 transition-colors duration-400 ease-in-out text-stone-950 rounded py-3 px-2 text-center text-sm"
+                className="flex items-center justify-center gap-2 rounded bg-stone-200 px-2 py-3 text-center text-sm text-stone-950 transition-colors duration-400 ease-in-out"
               >
                 Get started
               </Link>

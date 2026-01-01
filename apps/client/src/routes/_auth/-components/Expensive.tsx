@@ -55,9 +55,9 @@ export default function Expensive() {
   }, [auth.isAuthenticated])
 
   return (
-    <div className="p-2 h-full">
+    <div className="h-full p-2">
       <section className="p-2">
-        <h2 className="text-stone-300 text-lg font-semibold mb-4">
+        <h2 className="mb-4 text-lg font-semibold text-stone-300">
           Your Properties
         </h2>
 
@@ -70,25 +70,25 @@ export default function Expensive() {
             <table className="min-w-full border border-stone-700 text-sm text-stone-300">
               <thead className="bg-stone-800">
                 <tr>
-                  <th className="px-3 py-2 border border-stone-700 text-left">
+                  <th className="border border-stone-700 px-3 py-2 text-left">
                     Title
                   </th>
-                  <th className="px-3 py-2 border border-stone-700 text-left">
+                  <th className="border border-stone-700 px-3 py-2 text-left">
                     Description
                   </th>
-                  <th className="px-3 py-2 border border-stone-700 text-left">
+                  <th className="border border-stone-700 px-3 py-2 text-left">
                     Price
                   </th>
-                  <th className="px-3 py-2 border border-stone-700 text-left">
+                  <th className="border border-stone-700 px-3 py-2 text-left">
                     Surface
                   </th>
-                  <th className="px-3 py-2 border border-stone-700 text-left">
+                  <th className="border border-stone-700 px-3 py-2 text-left">
                     City
                   </th>
-                  <th className="px-3 py-2 border border-stone-700 text-left">
+                  <th className="border border-stone-700 px-3 py-2 text-left">
                     Available
                   </th>
-                  <th className="px-3 py-2 border border-stone-700 text-left">
+                  <th className="border border-stone-700 px-3 py-2 text-left">
                     Created At
                   </th>
                 </tr>
@@ -100,25 +100,25 @@ export default function Expensive() {
                     key={animal.id}
                     className="odd:bg-stone-900 even:bg-stone-800 hover:bg-stone-700"
                   >
-                    <td className="px-3 py-2 border border-stone-700">
+                    <td className="border border-stone-700 px-3 py-2">
                       {animal.title}
                     </td>
-                    <td className="px-3 py-2 border border-stone-700">
+                    <td className="border border-stone-700 px-3 py-2">
                       {animal.description}
                     </td>
-                    <td className="px-3 py-2 border border-stone-700">
+                    <td className="border border-stone-700 px-3 py-2">
                       {animal.price}
                     </td>
-                    <td className="px-3 py-2 border border-stone-700">
+                    <td className="border border-stone-700 px-3 py-2">
                       {animal.surface}
                     </td>
-                    <td className="px-3 py-2 border border-stone-700">
+                    <td className="border border-stone-700 px-3 py-2">
                       {animal.city}
                     </td>
-                    <td className="px-3 py-2 border border-stone-700">
+                    <td className="border border-stone-700 px-3 py-2">
                       {animal.available ? 'Yes' : 'No'}
                     </td>
-                    <td className="px-3 py-2 border border-stone-700">
+                    <td className="border border-stone-700 px-3 py-2">
                       {new Date(animal.createdAt).toLocaleDateString()}
                     </td>
                   </tr>

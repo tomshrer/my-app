@@ -14,13 +14,13 @@ export function InvoicesLayout() {
   return (
     <div className="flex h-full">
       {/* Sidebar */}
-      <aside className="w-48 border-r flex flex-col divide-y bg-white">
+      <aside className="flex w-48 flex-col divide-y border-r bg-white">
         {invoices.map((invoice) => (
           <Link
             key={invoice.id}
             to="/dashboard/invoices/$invoiceId"
             params={{ invoiceId: invoice.id }}
-            className="px-3 py-2 text-blue-600 hover:bg-blue-50 transition"
+            className="px-3 py-2 text-blue-600 transition hover:bg-blue-50"
             activeProps={{ className: 'font-bold bg-blue-100' }}
           >
             #{invoice.id} – {invoice.title}
@@ -29,7 +29,7 @@ export function InvoicesLayout() {
       </aside>
 
       {/* Content */}
-      <main className="flex-1 p-4 overflow-auto">
+      <main className="flex-1 overflow-auto p-4">
         <Outlet />
       </main>
     </div>

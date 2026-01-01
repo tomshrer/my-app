@@ -6,7 +6,7 @@ export const Route = createFileRoute('/_auth/dashboard/invoices/')({
 
 function InvoicesIndex() {
   return (
-    <div className="h-full flex items-center justify-center text-gray-500">
+    <div className="flex h-full items-center justify-center text-gray-500">
       Select an invoice
     </div>
   )

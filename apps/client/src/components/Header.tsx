@@ -6,21 +6,21 @@ export default function Header() {
 
   return (
     <div className="border-b border-stone-50/10 px-4">
-      <div className="h-20 flex items-center justify-between relative max-w-6xl mx-auto">
+      <div className="relative mx-auto flex h-20 max-w-6xl items-center justify-between">
         {/* Logo / Brand */}
         <Link to="/" className="text-xl font-bold text-black hover:underline">
           ImmoSite
         </Link>
 
         {/* Navigation */}
-        <nav className="hidden md:flex space-x-6 text-gray-700 font-medium">
-          <Link to="/properties" className="hover:text-black transition">
+        <nav className="hidden space-x-6 font-medium text-gray-700 md:flex">
+          <Link to="/properties" className="transition hover:text-black">
             Propriétés
           </Link>
-          <Link to="/" className="hover:text-black transition">
+          <Link to="/" className="transition hover:text-black">
             Agents
           </Link>
-          <Link to="/" className="hover:text-black transition">
+          <Link to="/" className="transition hover:text-black">
             Contact
           </Link>
         </nav>
@@ -36,7 +36,7 @@ export default function Header() {
           ) : (
             <Link
               to="/login"
-              className="px-4 py-2 text-sm bg-black text-white rounded-md hover:bg-gray-800 transition"
+              className="rounded-md bg-black px-4 py-2 text-sm text-white transition hover:bg-gray-800"
             >
               Se connecter
             </Link>

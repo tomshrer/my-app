@@ -88,9 +88,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           password,
         })
         if (!data) throw new Error('Authentication failed')
-        // @ts-ignore
-        setUser(data.user)
         setIsAuthenticated(true)
+        if (!data?.token) {
+          throw new Error('No token returned')
+        }
         localStorage.setItem('auth-token', data.token)
         console.log('Login réussi:', data)
       } catch (err) {
@@ -110,7 +111,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex min-h-screen items-center justify-center">
         Loading...
       </div>
     )

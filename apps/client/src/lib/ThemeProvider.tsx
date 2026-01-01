@@ -1,0 +1,1 @@
+const themeStorageKey = 'ui-theme'

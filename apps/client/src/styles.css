@@ -1,8 +1,9 @@
 @import 'tailwindcss';
-@plugin "@toolwind/corner-shape";
+@plugin '@toolwind/corner-shape';
+@custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  @apply bg-stone-950 text-stone-50 antialiased min-h-full;
+  @apply min-h-full bg-white text-stone-950 antialiased dark:bg-stone-950 dark:text-stone-50;
   font-family:
     system-ui,
     -apple-system,
@@ -25,6 +26,6 @@ code {
 @layer base {
   input,
   textarea {
-    @apply block w-full rounded-md px-3 py-1.5 text-base text-white border border-zinc-700 bg-zinc-800;
+    @apply block w-full rounded-md border border-stone-300 bg-stone-100 px-3 py-1.5 text-base dark:border-stone-100 dark:bg-zinc-800;
   }
 }

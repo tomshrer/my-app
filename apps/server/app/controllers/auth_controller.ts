@@ -3,13 +3,6 @@ import { loginValidator, registerValidator } from '#validators/auth'
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class AuthController {
-  /**
-   * @register
-   * @requestBody <RegisterValidator>
-   * @responseBody 201 - { "token": "string", "type": "Bearer", "expires_at": "2024-01-01T00:00.000Z" }
-   * @responseBody 422 - { "errors": [{ "message": "The email field must be a valid email address.", "rule": "email", "field": "email" }] }
-   * @responseBody 500 - { "message": "Internal server error" }
-   */
   async register({ request, response }: HttpContext) {
     const data = await request.validateUsing(registerValidator)
 
@@ -22,13 +15,7 @@ export default class AuthController {
       fullName: data.fullName,
     })
 
-    const token = await User.accessTokens.create(user)
-
-    return response.ok({
-      type: 'bearer',
-      token: token.value!.release(),
-      user: user,
-    })
+    return await User.accessTokens.create(user)
   }
 
   /**

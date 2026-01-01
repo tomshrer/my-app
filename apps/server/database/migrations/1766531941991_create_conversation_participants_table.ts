@@ -1,7 +1,7 @@
 import { BaseSchema } from '@adonisjs/lucid/schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'messages'
+  protected tableName = 'conversation_participants'
 
   async up() {
     this.schema.createTable(this.tableName, (table) => {
@@ -12,8 +12,8 @@ export default class extends BaseSchema {
         .references('id')
         .inTable('conversations')
         .onDelete('CASCADE')
-      table.integer('sender_id').unsigned().references('id').inTable('users')
-      table.text('content').notNullable()
+      table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE')
+      table.unique(['conversation_id', 'user_id'])
       table.timestamps(true, true)
     })
   }
