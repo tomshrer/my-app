@@ -31,21 +31,22 @@ router.get('/docs', async () => {
 
 router.get('/', [HomeController, 'index'])
 
-router.post('/register', [AuthController, 'register']).as('auth.register')
-router.post('/login', [AuthController, 'login']).as('auth.login')
-router.delete('/logout', [AuthController, 'logout']).as('auth.logout').use(middleware.auth())
-router.get('/me', [AuthController, 'me']).as('auth.me').use(middleware.auth())
+router.post('/register', [AuthController, 'register']).prefix('auth')
+router.post('/login', [AuthController, 'login']).prefix('auth')
+router.post('/logout', [AuthController, 'logout']).use(middleware.auth())
+router.get('/me', [AuthController, 'me']).use(middleware.auth())
 
 router
   .group(() => {
     router.get('/mine', [PropertyController, 'mine']).use(middleware.auth())
     router.get('/', [PropertyController, 'list'])
     router.get('/:id', [PropertyController, 'show'])
-    router.post('/', [PropertyController, 'create']).use(middleware.auth())
     router.put('/:id', [PropertyController, 'update'])
     router.delete('/:id', [PropertyController, 'delete'])
   })
   .prefix('/properties')
+
+router.post('/properties', [PropertyController, 'create']).use(middleware.auth())
 
 router.get('/profile/edit', [ProfilesController, 'edit']).use(middleware.auth())
 router.put('/profiles', [ProfilesController, 'update']).use(middleware.auth())

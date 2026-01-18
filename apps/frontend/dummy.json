@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Appartement Moderne",
+    "type": "Apartment",
+    "price": 950,
+    "currency": "EUR",
+    "city": "Paris",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "Studio Centre-ville",
+    "type": "Studio",
+    "price": 600,
+    "currency": "EUR",
+    "city": "Lyon",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "available": true
+  },
+  {
+    "id": 3,
+    "name": "Maison Familiale",
+    "type": "House",
+    "price": 1400,
+    "currency": "EUR",
+    "city": "Toulouse",
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "available": false
+  },
+  {
+    "id": 4,
+    "name": "Loft Urbain",
+    "type": "Loft",
+    "price": 1200,
+    "currency": "EUR",
+    "city": "Bordeaux",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "available": true
+  },
+  {
+    "id": 5,
+    "name": "Maison Bord de Mer",
+    "type": "House",
+    "price": 1800,
+    "currency": "EUR",
+    "city": "Nice",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "available": true
+  },
+  {
+    "id": 6,
+    "name": "Appartement Central",
+    "type": "Apartment",
+    "price": 1100,
+    "currency": "EUR",
+    "city": "Nantes",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "available": false
+  },
+  {
+    "id": 7,
+    "name": "Petite Maison",
+    "type": "House",
+    "price": 900,
+    "currency": "EUR",
+    "city": "Rennes",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "available": true
+  },
+  {
+    "id": 8,
+    "name": "Appartement de Standing",
+    "type": "Condo",
+    "price": 2200,
+    "currency": "EUR",
+    "city": "Cannes",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "available": true
+  },
+  {
+    "id": 9,
+    "name": "Studio Étudiant",
+    "type": "Studio",
+    "price": 500,
+    "currency": "EUR",
+    "city": "Montpellier",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "available": true
+  },
+  {
+    "id": 10,
+    "name": "Maison de Banlieue",
+    "type": "House",
+    "price": 1300,
+    "currency": "EUR",
+    "city": "Versailles",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "available": false
+  }
+]

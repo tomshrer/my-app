@@ -1,25 +1,8 @@
 {
   "name": "my-app",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "client": "npm run dev --prefix apps/client",
-    "server": "npm run dev --prefix apps/server",
-    "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm run client\" \"npm run server\""
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "workspaces": [
-    "apps/server",
-    "apps/client"
-  ],
-  "devDependencies": {
-    "concurrently": "^9.2.1",
-    "eslint-plugin-simple-import-sort": "^12.1.1"
-  },
-  "dependencies": {
-    "@vinejs/vine": "^4.1.0"
-  }
+  "private": true,
+"scripts": {
+  "dev": "pnpm -r --parallel dev",
+  "build": "pnpm -r build"
+}
 }

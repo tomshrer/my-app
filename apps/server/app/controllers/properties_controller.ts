@@ -1,85 +1,37 @@
 import Property from '#models/property'
-import { createPropertyValidator, updateAnimalValidator } from '#validators/property'
-import { cuid } from '@adonisjs/core/helpers'
 import type { HttpContext } from '@adonisjs/core/http'
-import app from '@adonisjs/core/services/app'
 
 export default class PropertiesController {
-  /**
-   * @list
-   * @summary List all animals
-   * @responseBody 200 - <Animal[]>
-   * @responseBody 500 - { "message": "Internal server error" }
-   */
   public async list({ response }: HttpContext) {
     const properties = await Property.query().preload('user')
     return response.json(properties)
   }
 
-  /**
-   * @show
-   * @summary Show a single animal by ID
-   * @paramPath id - Describe the id param - @type(number) - @required
-   * @responseBody 200 - <Animal>
-   * @responseBody 404 - { "message": "Row not found" }
-   * @responseBody 500 - { "message": "Internal server error" }
-   */
   public async show({ params, response }: HttpContext) {
     const property = await Property.findOrFail(params.id)
     return response.json(property)
   }
 
-  /**
-   * @create
-   * @summary Create a new animal
-   * @requestBody <createAnimalValidator>
-   * @responseBody 201 - <Animal>
-   * @responseBody 422 - { "errors": [{ "message": "The age field must be defined.", "rule": "required", "field": "age"}]}
-   * @responseBody 500 - { "message": "Internal server error" }
-   */
   public async create({ request, auth, response }: HttpContext) {
-    const payload = await request.validateUsing(createPropertyValidator)
+    try {
+      const data = request.only(['name', 'address'])
 
-    const { image, ...data } = payload
+      const property = await Property.create({ ...data, userId: auth.user?.id })
 
-    await image.move(app.makePath('storage/uploads'), {
-      name: `${cuid()}.${image.extname}`,
-    })
-
-    const property = await Property.create({
-      ...data,
-      imageUrl: image.fileName!,
-      userId: auth.user?.id,
-    })
-    return response.status(201).json(property)
+      return response.status(201).json(property)
+    } catch (error) {
+      return response.status(500).json({ message: 'Erreur serveur', error })
+    }
   }
 
-  /**
-   * @update
-   * @summary Update an existing animal by ID
-   * @paramPath id - Describe the id param - @type(number) - @required
-   * @requestBody <updateAnimalValidator>
-   * @responseBody 200 - <Animal>
-   * @responseBody 404 - { "message": "Row not found" }
-   * @responseBody 422 - { "errors": [{ "message": "The age field must be defined.", "rule": "required", "field": "age"}]}
-   * @responseBody 500 - { "message": "Internal server error" }
-   */
   public async update({ params, request, response }: HttpContext) {
-    const payload = await request.validateUsing(updateAnimalValidator)
+    const payload = request.only(['name', 'address'])
     const animal = await Property.findOrFail(params.id)
     animal.merge(payload)
     await animal.save()
     return response.json(animal)
   }
 
-  /**
-   * @delete
-   * @summary Delete an animal by ID
-   * @paramPath id - Describe the id param - @type(number) - @required
-   * @responseBody 204 - No Content
-   * @responseBody 404 - { "message": "Row not found" }
-   * @responseBody 500 - { "message": "Internal server error" }
-   */
   public async delete({ params, response }: HttpContext) {
     const animal = await Property.findOrFail(params.id)
     await animal.delete()

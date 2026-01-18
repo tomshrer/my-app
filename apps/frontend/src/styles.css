@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
+body {
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  input {
+    @apply w-full border border-gray-300 rounded px-3 py-2;
+  }
+
+  label {
+    @apply block mb-1 text-sm font-medium text-gray-700;
+  }
+}

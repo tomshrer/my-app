@@ -29,6 +29,7 @@ export default defineConfig({
     () => import('@adonisjs/core/commands'),
     () => import('@adonisjs/lucid/commands'),
     () => import('@tuyau/core/commands'),
+    () => import('@adonisjs/session/commands')
   ],
 
   /*
@@ -52,6 +53,7 @@ export default defineConfig({
     () => import('@adonisjs/lucid/database_provider'),
     () => import('@adonisjs/auth/auth_provider'),
     () => import('@tuyau/core/tuyau_provider'),
+    () => import('@adonisjs/session/session_provider')
   ],
 
   /*
