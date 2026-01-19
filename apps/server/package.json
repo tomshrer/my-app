@@ -58,7 +58,7 @@
     "@adonisjs/auth": "^9.5.1",
     "@adonisjs/core": "^6.18.0",
     "@adonisjs/cors": "^2.2.1",
-    "@adonisjs/lucid": "^21.6.1",
+    "@adonisjs/lucid": "^21.8.2",
     "@adonisjs/session": "^7.7.1",
     "@maximemrf/adonisjs-jwt": "^0.6.1",
     "@tuyau/core": "^0.4.2",
